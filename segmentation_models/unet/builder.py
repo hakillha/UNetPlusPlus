@@ -36,6 +36,9 @@ def build_unet(backbone, classes, skip_connection_layers,
 
         upsample_rate = to_tuple(upsample_rates[i])
 
+        # decoder_filters: #conv filters
+        # i: stage
+        # skip_connection: input from skip connection
         x = up_block(decoder_filters[i], i, upsample_rate=upsample_rate,
                      skip=skip_connection, use_batchnorm=use_batchnorm)(x)
 
